@@ -30,6 +30,7 @@ db/*.sqlite3
 *.save
 *.sassc
 .redcar/
+.byebug_history
 .sass-cache
 /config/config.yml
 /coverage.data
