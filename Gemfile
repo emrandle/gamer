@@ -22,6 +22,7 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'pundit'
+gem 'kaminari'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -4,6 +4,7 @@ class CreateGameSessions < ActiveRecord::Migration[5.1]
     	t.date		:game_date
     	t.string	:name
     	t.integer	:bgg_id
+    	t.integer :game_group_id
 
       t.timestamps
     end

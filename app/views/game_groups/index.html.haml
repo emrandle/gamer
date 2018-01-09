@@ -1,0 +1,3 @@
+- @game_groups.each do |gg|
+	= link_to "#{gg.name}", gg
+	= "#{gg.game_sessions.count} sessions"

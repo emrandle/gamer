@@ -1,0 +1,7 @@
+%h3 Welcome
+%p
+  = link_to 'Groups:', game_groups_path
+  = "#{User.count} users registered"
+  %br
+  - @groups.each do |group|
+    = link_to "#{group.name}", group
