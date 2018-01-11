@@ -1,3 +1,12 @@
-- @game_groups.each do |gg|
-	= link_to "#{gg.name}", gg
-	= "#{gg.game_sessions.count} sessions"
+%table#group_list.display
+  %thead
+    %tr
+      %th Group Name
+      %th Sessions
+  %tbody
+    - @game_groups.each do |group|
+      %tr
+        %td
+          = link_to "#{group.name}", group
+        %td
+          = "#{group.game_sessions.count}"

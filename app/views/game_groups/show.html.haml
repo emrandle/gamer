@@ -1,4 +1,14 @@
 %h3 #{@game_group.name} #{@game_group.game_sessions.count} sessions
 %br
--@game_group.players.each do |player|
-  %p #{player.nick_name}
+%table#player_list.display
+  %thead
+    %tr
+      %th Nick Name
+      %th Sessions
+  %tbody
+    - @game_group.players.each do |player|
+      %tr
+        %td
+          = "#{player.nick_name}"
+        %td
+          = "0"

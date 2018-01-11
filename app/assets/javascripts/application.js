@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+// require jquery.turbolinks
+// require turbolinks
 //= require rails-ujs
 //= require bootstrap-sprockets
+//= require dataTables/jquery.dataTables
+//= require dataTables/extras/dataTables.responsive
 //= require_tree .
+// require cable
+// require game_groups
+// require game_sessions
+// require visitors

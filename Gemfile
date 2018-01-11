@@ -13,7 +13,8 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
+# gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.alpha6'
@@ -23,6 +24,10 @@ gem 'high_voltage'
 gem 'jquery-rails'
 gem 'pundit'
 gem 'kaminari'
+gem 'jquery-datatables-rails'
+gem 'ajax-datatables-rails'
+gem 'backbone-rails'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

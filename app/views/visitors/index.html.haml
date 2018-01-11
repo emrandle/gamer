@@ -3,5 +3,12 @@
   = link_to 'Groups:', game_groups_path
   = "#{User.count} users registered"
   %br
-  - @groups.each do |group|
-    = link_to "#{group.name}", group
+  %table#group_list.display
+    %thead
+      %tr
+        %th Group Name
+    %tbody
+      - @groups.each do |group|
+        %tr
+          %td
+            = link_to "#{group.name}", group
