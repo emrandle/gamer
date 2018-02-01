@@ -11,4 +11,17 @@
         %td
           = "#{player.nick_name}"
         %td
-          = "0"
+          = "#{player.game_sessions.count}"
+%br
+%table#session_list.display
+  %thead
+    %tr
+      %th Game Name
+      %th Winner
+  %tbody
+    - @game_group.game_sessions.each do |session|
+      %tr
+        %td
+          = "#{session.name}"
+        %td
+          = "#{session.winner.nick_name}"

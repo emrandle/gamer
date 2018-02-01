@@ -1,7 +1,7 @@
 %h3 Welcome
 %p
-  = link_to 'Groups:', game_groups_path
-  = "#{User.count} users registered"
+  = link_to 'Gaming groups:', game_groups_path
+  = "#{GameGroup.count} groups registered      #{User.count} users"
   %br
   %table#group_list.display
     %thead
