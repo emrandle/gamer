@@ -25,4 +25,18 @@ class GameGroup < ApplicationRecord
 
 		results
   end
+
+  def wins_for(year,player)
+    wins = []
+
+    sessions_for(year,player).each do |session|
+      wins << session if session.winner.eql?(player)
+    end
+
+    wins
+  end
+
+  def game_totals(year)
+    
+  end
 end

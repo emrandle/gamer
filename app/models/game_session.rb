@@ -4,7 +4,7 @@ class GameSession < ApplicationRecord
 
 	belongs_to :game_group
 
-	def high_score
+	def high_player_score
 		player_score = nil
 		score = 0
 
@@ -19,6 +19,6 @@ class GameSession < ApplicationRecord
 	end
 
 	def winner
-		high_score.player
+		high_player_score.nil? ? nil : high_player_score.player
 	end
 end

@@ -1,27 +1,48 @@
 %h3 #{@game_group.name} #{@game_group.game_sessions.count} sessions
 %br
-%table#player_list.display
+.dropdown
+  %button#dropdownYearButton.btn.btn-secondary.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+    Game Year
+  .dropdown-menu{"aria-labelledby" => "dropdownYearButton"}
+    %a.dropdown-item{:href => "#"} 2015
+    %a.dropdown-item{:href => "#"} 2016
+    %a.dropdown-item{:href => "#"} 2017
+    %a.dropdown-item{:href => "#"} 2018
+%br
+%table.table.table-bordered.table-dark.thead-light
   %thead
     %tr
       %th Nick Name
-      %th Sessions
+      %th
+        = "#{@year} Wins"
+      %th 
+        = "#{@year} Sessions"
+      %th Total Sessions
   %tbody
     - @game_group.players.each do |player|
       %tr
         %td
           = "#{player.nick_name}"
         %td
+          = "#{@game_group.wins_for(@year,player).count}"
+        %td
+          = "#{@game_group.sessions_for(@year,player).count}"
+        %td
           = "#{player.game_sessions.count}"
+
 %br
-%table#session_list.display
+%table.table.table-bordered.table-striped.table-sm
   %thead
     %tr
       %th Game Name
+      %th Date
       %th Winner
   %tbody
-    - @game_group.game_sessions.each do |session|
+    - @game_group.sessions_for_year(@year).each do |session|
       %tr
         %td
           = "#{session.name}"
         %td
-          = "#{session.winner.nick_name}"
+          = "#{session.game_date}"
+        %td
+          = "#{session.winner.nil? ? 'No winner' : session.winner.nick_name}"
