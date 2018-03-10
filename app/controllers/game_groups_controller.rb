@@ -6,5 +6,6 @@ class GameGroupsController < ApplicationController
   def show
   	@year = params[:yr].nil? ? 2017 : params[:yr]
   	@game_group = GameGroup.find_by id: params[:id]
+  	@games = @game_group.game_totals(@year)
   end
 end

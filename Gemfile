@@ -27,6 +27,7 @@ gem 'kaminari'
 gem 'jquery-datatables-rails'
 gem 'ajax-datatables-rails'
 gem 'backbone-rails'
+gem 'bgg-api', :git => 'https://github.com/bhardin/bgg-api'
 
 
 group :development do

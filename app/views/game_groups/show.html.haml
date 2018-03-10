@@ -29,7 +29,23 @@
           = "#{@game_group.sessions_for(@year,player).count}"
         %td
           = "#{player.game_sessions.count}"
-
+%br
+%table.table.table-bordered.table-striped.table-sm
+  %thead
+    %tr
+      %th Game
+      %th
+        = "#{@year} Plays"
+      %th Player
+  %tbody
+    - @games.each do |name, wins|
+      %tr
+        %td
+          = "#{name}"
+        %td
+          = "#{wins['plays']}"
+        %td
+          = ""
 %br
 %table.table.table-bordered.table-striped.table-sm
   %thead
