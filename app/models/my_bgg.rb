@@ -30,4 +30,16 @@ module MyBgg
 
 		item[0]
 	end
+
+	def self.hotness
+		bgg = BggApi.new
+		hash_result = bgg.hot({:type => 'boardgame'})
+		item = hash_result['item']
+
+		if item.nil?
+			return nil
+		end
+
+		item
+	end
 end
