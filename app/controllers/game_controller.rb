@@ -4,4 +4,8 @@ class GameController < ApplicationController
 
 		render json: @result
 	end
+
+	def show
+		
+	end
 end

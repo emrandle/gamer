@@ -7,6 +7,8 @@ namespace :gamer do
 		Player.delete_all
 		GameSession.delete_all
 		PlayerScore.delete_all
+		GroupGame.delete_all
+		BggGame.delete_all
 
 		game_group = GameGroup.create(name: 'Beginners Mind')
 
@@ -23,6 +25,13 @@ namespace :gamer do
 			gs.player_scores.create({player_id: keith.id, score: row['KeithScore']}) unless row['KeithScore'].nil?
 			gs.player_scores.create({player_id: darius.id, score: row['DariusScore']}) unless row['DariusScore'].nil?
 			gs.player_scores.create({player_id: ali.id, score: row['AliScore']}) unless row['AliScore'].nil?
+
+			game = BggGame.where({bgg_id: "#{row['GameID']}"})
+			if game.nil?
+				game = BggGame.create(bgg_id: "#{row['GameID']}", bgg_name: "#{row['GameName']}")
+				# GroupGame.create
+			else
+			end
 
 			puts "#{row['Date']}, #{row['GameName']}, Mike: #{row['MikeScore']}, Mel: #{row['MelScore']}, Keith: #{row['KeithScore']}, Darius: #{row['DariusScore']}, Ali: #{row['AliScore']}"
 		end

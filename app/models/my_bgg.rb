@@ -22,24 +22,40 @@ module MyBgg
 	def self.find_by_id(id)
 		bgg = BggApi.new
 		hash_result = bgg.thing( {:id => id, :type => 'boardgame'} )
-		item = hash_result['item']
+		item = hash_result['item'][0]
 
 		if item.nil?
 			return nil
 		end
 
-		item[0]
+		game = BggGame.new
+		game.bgg_id = item['id']
+		game.bgg_name = item['name'][0]['value']
+		game.thumbnail = item['thumbnail'][0]
+		game.year_published = item['yearpublished'][0]['value']
+
+		game
 	end
 
 	def self.hotness
 		bgg = BggApi.new
 		hash_result = bgg.hot({:type => 'boardgame'})
-		item = hash_result['item']
+		item_ary = hash_result['item']
+		games = []
 
-		if item.nil?
-			return nil
+		unless item_ary.nil?
+			item_ary.each do |hsh|
+				game = BggGame.new
+				game.bgg_id = hsh['id']
+				game.bgg_name = hsh['name'][0]['value']
+				game.rank = hsh['rank']
+				game.thumbnail = hsh['thumbnail'][0]['value']
+				game.year_published = hsh['yearpublished'][0]['value']
+
+				games << game
+			end
 		end
 
-		item
+		games
 	end
 end

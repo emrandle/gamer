@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105222331) do
+ActiveRecord::Schema.define(version: 20180326225937) do
+
+  create_table "bgg_games", force: :cascade do |t|
+    t.integer "bgg_id"
+    t.integer "rank"
+    t.string "bgg_name"
+    t.string "year_published"
+    t.string "thumbnail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "game_groups", force: :cascade do |t|
     t.string "name"
@@ -26,6 +36,15 @@ ActiveRecord::Schema.define(version: 20180105222331) do
     t.integer "game_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "group_games", force: :cascade do |t|
+    t.integer "bgg_game_id"
+    t.integer "game_group_id"
+    t.date "last_played"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bgg_game_id", "game_group_id"], name: "index_group_games_on_bgg_game_id_and_game_group_id"
   end
 
   create_table "player_scores", force: :cascade do |t|

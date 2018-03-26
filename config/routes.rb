@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :game_sessions
   resources :game_groups
+  resources :game
 
   get 'game/search_for_game', action: 'search_for_game', controller: 'game'
 end

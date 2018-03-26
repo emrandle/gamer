@@ -1,14 +1,14 @@
 %h3 Welcome
 %p
-  = link_to 'Gaming groups:', game_groups_path
+  = link_to 'Gaming groups', game_groups_path
   = "#{GameGroup.count} groups registered      #{User.count} users"
   %br
   %table#group_list.display
     %thead
       %tr
-        %th Group Name
+        %th The BGG Hotness
     %tbody
-      - @groups.each do |group|
+      - @hotness.each do |game|
         %tr
           %td
-            = link_to "#{group.name}", group
+            = link_to "#{game.bgg_name}"

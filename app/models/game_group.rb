@@ -2,6 +2,9 @@ class GameGroup < ApplicationRecord
   has_many :game_sessions
   has_many :players
 
+  has_many :group_games
+  has_many :bgg_games, through: :group_games
+
   def num_of_sessions
   	game_sessions.count
   end
@@ -24,6 +27,10 @@ class GameGroup < ApplicationRecord
 		end
 
 		results
+  end
+
+  def games_played
+    game_sessions.order('name').distinct.pluck(:name)
   end
 
   def wins_for(year,player)

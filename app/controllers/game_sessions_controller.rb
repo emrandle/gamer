@@ -5,5 +5,6 @@ class GameSessionsController < ApplicationController
 
 	def new
 		@game_session = GameSession.new
+		
 	end
 end

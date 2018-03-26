@@ -1,3 +1,17 @@
 %form{:id => 'new_session_form', :action => 'create', :method => 'post'}
   %label{:for => 'game_name'} Game name:
   %input{:type => 'text', :id => 'game_name'}
+  %a.btn.btn-large.btn-primary{"data-toggle" => "modal", :href => "#myModal", :role => "button"} Find
+
+  
+
+#myModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Confirmation
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      .modal-body
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary{:type => "button"} Save changes
